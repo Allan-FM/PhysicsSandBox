@@ -1318,7 +1318,6 @@ GameObject:
   - component: {fileID: 1111361291}
   - component: {fileID: 1111361290}
   - component: {fileID: 1111361289}
-  - component: {fileID: 1111361292}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1391,20 +1390,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.194, y: 90.89, z: 0}
---- !u!114 &1111361292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111361288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9f938543eeb9f428c6f36a7847ae0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 231852829353779544}
-  arm: {x: -0.12, y: 0.85, z: -4.25}
 --- !u!1 &1119734944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6664,6 +6649,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 231852829353779547, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
+      propertyPath: thrust
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231852829353779547, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
+      propertyPath: pitchTorque
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 526277509016259522, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
       propertyPath: m_Name
       value: AirPlane
@@ -6714,28 +6707,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
---- !u!4 &231852829353779544 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2619410243991604520, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
-  m_PrefabInstance: {fileID: 231852829353779543}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &231852829353779545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 526277509016259522, guid: d2ad28ed8593828459aa531d61b45ad4, type: 3}
-  m_PrefabInstance: {fileID: 231852829353779543}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &231852829353779546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231852829353779545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15b5cd54bafad245b7e707d2dce4fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &401048122656778604
 Rigidbody:
   m_ObjectHideFlags: 0

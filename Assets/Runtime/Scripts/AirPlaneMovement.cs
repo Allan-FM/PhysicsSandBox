@@ -16,12 +16,25 @@ public class AirPlaneMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector2 framInput;
     private Vector2 steerInput;
+    [Header("RigidBody")]
+    [SerializeField] private float mass = 10;
+    [SerializeField] private float drag = 0.5f;
+    [SerializeField] private float angularDrag = 10;
 
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        InicializeRigidBody();
     }
+
+    private void InicializeRigidBody()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.mass = mass;
+        rb.drag = drag;
+        rb.angularDrag = angularDrag;
+    }
+
     private void FixedUpdate()
     {
         UpdateMovement();
@@ -41,7 +54,6 @@ public class AirPlaneMovement : MonoBehaviour
         var moveForce = transform.forward * thrust;
         rb.AddForce(moveForce);
     }
-
     public void SetSteerInput(Vector2 newFrameInput)
     {
         framInput = newFrameInput;

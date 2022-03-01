@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1111361288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1111361291}
+  - component: {fileID: 1111361290}
+  - component: {fileID: 1111361289}
+  - component: {fileID: 1111361292}
+  m_Layer: 8
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1111361291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111361288}
+  m_LocalRotation: {x: 0.03658771, y: 0.000000059604645, z: 0.0000000037252903, w: 0.9993305}
+  m_LocalPosition: {x: -0.099999994, y: 0.7, z: -3.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2619410243991604520}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 4.194, y: 90.89, z: 0}
+--- !u!20 &1111361290
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111361288}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.7971698, g: 0.94037473, b: 1, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 41.5
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &1111361289
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111361288}
+  m_Enabled: 1
+--- !u!114 &1111361292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111361288}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9f938543eeb9f428c6f36a7847ae0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2619410243991604520}
+  arm: {x: -0.1, y: 0.7, z: -3.45}
 --- !u!1 &526277509016259522
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +110,6 @@ GameObject:
   - component: {fileID: 8083989477443072838}
   - component: {fileID: 2760378159588329059}
   - component: {fileID: 5804716794154336575}
-  - component: {fileID: 231852829353779546}
   - component: {fileID: 231852829353779547}
   m_Layer: 0
   m_Name: AirPlane
@@ -33,6 +130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2896708009218660630}
+  - {fileID: 1111361291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,18 +178,6 @@ CapsuleCollider:
   m_Height: 0.52433896
   m_Direction: 0
   m_Center: {x: -0.103000104, y: 0.6225346, z: -2.7033162}
---- !u!114 &231852829353779546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526277509016259522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15b5cd54bafad245b7e707d2dce4fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &231852829353779547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +190,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4096e8a7790d5a4fae307450297571d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steerSmoothSpeed: 1.5
+  thrust: 50
+  pitchTorque: 10
+  yawTorque: 5
+  mass: 25
+  drag: 1.5
+  angularDrag: 10
 --- !u!1 &4135436916447739366
 GameObject:
   m_ObjectHideFlags: 0

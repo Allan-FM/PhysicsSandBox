@@ -13,21 +13,31 @@ public class AirPlaneMovement : MonoBehaviour
     [SerializeField] private float thrust = 60;
     [SerializeField] private float pitchTorque = 30;
     [SerializeField] private float yawTorque = 15;
-    private Rigidbody rb;
-    private Vector2 framInput;
-    private Vector2 steerInput;
+    [SerializeField] private float xRotClamp = 70;
+
     [Header("RigidBody")]
+
     [SerializeField] private float mass = 10;
     [SerializeField] private float drag = 0.5f;
     [SerializeField] private float angularDrag = 10;
 
+    [Header("Visuals")]
+
+    [SerializeField] private Transform graphics;
+    [SerializeField] private float maxVisualRollAngle = 60;
+    [SerializeField] private float visualRollAcc = 2;
+
+    private Rigidbody rb;
+
+    private Vector2 frameInput;
+    private Vector2 steerInput;
 
     private void Awake()
     {
-        InicializeRigidBody();
+        InitializeRigidBody();
     }
 
-    private void InicializeRigidBody()
+    private void InitializeRigidBody()
     {
         rb = GetComponent<Rigidbody>();
         rb.mass = mass;
@@ -41,12 +51,47 @@ public class AirPlaneMovement : MonoBehaviour
         UpdateSteering();
     }
 
+    private static float To180Angle(float angle)
+    {
+        angle = angle % 360;
+        if (angle > 180)
+        {
+            return angle - 360;
+        }
+        else if (angle < -180)
+        {
+            return angle + 360;
+        }
+        return angle;
+    }
+
     private void UpdateSteering()
     {
-        steerInput = Vector2.Lerp(steerInput, framInput, Time.fixedDeltaTime * steerSmoothSpeed);
-        var torque = new Vector3(steerInput.x * pitchTorque, steerInput.y * yawTorque, 0);
+        steerInput = Vector2.Lerp(steerInput, frameInput, Time.fixedDeltaTime * steerSmoothSpeed);
+        var torque = new Vector3(
+            steerInput.x * pitchTorque, steerInput.y * yawTorque,0);
+
+        if (ShouldBlockPitch())
+        {
+            steerInput.x = 0;
+            torque.x = 0;
+        }
 
         rb.AddRelativeTorque(torque);
+        var correctedRot = rb.rotation.eulerAngles;
+        correctedRot.z = 0;
+        rb.rotation = Quaternion.Euler(correctedRot);
+
+        var graphicsLocalRotation = graphics.localEulerAngles;
+        var targetZ = -maxVisualRollAngle * steerInput.y;
+        graphicsLocalRotation.z = Mathf.MoveTowardsAngle(graphicsLocalRotation.z, targetZ, Time.fixedDeltaTime * visualRollAcc);
+        graphics.localEulerAngles = graphicsLocalRotation;
+    }
+
+    private bool ShouldBlockPitch()
+    {
+        var xRot = To180Angle(rb.rotation.eulerAngles.x);
+        return (frameInput.x > 0 && xRot > xRotClamp) || (frameInput.x < 0 && xRot < -xRotClamp);
     }
 
     private void UpdateMovement()
@@ -54,8 +99,9 @@ public class AirPlaneMovement : MonoBehaviour
         var moveForce = transform.forward * thrust;
         rb.AddForce(moveForce);
     }
+
     public void SetSteerInput(Vector2 newFrameInput)
     {
-        framInput = newFrameInput;
+        frameInput = newFrameInput;
     }
 }

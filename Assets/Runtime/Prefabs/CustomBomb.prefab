@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8563511547945427519}
   - component: {fileID: 1628019856364720270}
   - component: {fileID: 9123159789632972942}
+  - component: {fileID: 7815502054312989881}
   m_Layer: 9
   m_Name: CustomBomb
   m_TagString: Untagged
@@ -128,6 +129,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6950069037017141431}
   m_Mesh: {fileID: 4711208715938537054, guid: 59b08a32b4e34d747a493a21f65540c9, type: 3}
+--- !u!114 &7815502054312989881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6950069037017141431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d8aca1e388f7d4687ba76bb9c542fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionDelay: 3
+  explosionColorBomb: {r: 1, g: 0, b: 0, a: 1}
+  explosionParticles: {fileID: 8841684218273023521}
 --- !u!1001 &5362874998332859274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +151,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6208426696120459940}
     m_Modifications:
+    - target: {fileID: -7765124096783737721, guid: c9c7b191070f9164ca1c7d6e32c3250f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 857441559323073522, guid: c9c7b191070f9164ca1c7d6e32c3250f, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -196,5 +216,10 @@ PrefabInstance:
 --- !u!4 &8674610037362490203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3607002577376598225, guid: c9c7b191070f9164ca1c7d6e32c3250f, type: 3}
+  m_PrefabInstance: {fileID: 5362874998332859274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8841684218273023521 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3521597850421257643, guid: c9c7b191070f9164ca1c7d6e32c3250f, type: 3}
   m_PrefabInstance: {fileID: 5362874998332859274}
   m_PrefabAsset: {fileID: 0}

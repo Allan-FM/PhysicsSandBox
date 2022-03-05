@@ -143,6 +143,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionDelay: 3
   explosionColorBomb: {r: 1, g: 0, b: 0, a: 1}
+  explosionRadius: 2
+  explosionForce: 20
+  upswardModifier: 2
+  explosionLayer:
+    serializedVersion: 2
+    m_Bits: 2147483647
   explosionParticles: {fileID: 8841684218273023521}
 --- !u!1001 &5362874998332859274
 PrefabInstance:

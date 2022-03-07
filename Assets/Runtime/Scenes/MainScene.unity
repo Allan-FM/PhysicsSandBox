@@ -8088,6 +8088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 4577661933691711128, guid: 9adb3f5aee740ec4d95f1deea84ebacb, type: 3}
+      propertyPath: raycastMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8890125566529041771, guid: 9adb3f5aee740ec4d95f1deea84ebacb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8098,7 +8102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8890125566529041771, guid: 9adb3f5aee740ec4d95f1deea84ebacb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.005
+      value: 1.0083
       objectReference: {fileID: 0}
     - target: {fileID: 8890125566529041771, guid: 9adb3f5aee740ec4d95f1deea84ebacb, type: 3}
       propertyPath: m_LocalPosition.z
